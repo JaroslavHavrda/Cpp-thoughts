@@ -26,6 +26,8 @@ int main()
 }
 '''
 The code outputs 6, which may be surprising result.
+The reason is that results is deduced to be vector<int>. The line results.push_back(t) then converts t to bool using the (bool) operator and then promotes
+bool to int.
 ##Is a / Has a rule
 At this point I will like review the is a / has a rule.
 <https://en.wikipedia.org/wiki/Has-a>
