@@ -62,6 +62,9 @@ bool. Not having implicit conversion from *Inheritance* to bool will break the c
 This gives me the feeling that it is not template argument deduction that has bitten us. It is the fact that we abused C++ syntax and wrote purely technical
 code that does not model any real interaction too closely. Would we choose more descriptive naming the problem would be apparent.
 ##The case for deriving from std::array
+I once inherited from std::array. I did it because I needed array of three doubles... ... that has constructor taking three doubles.
+ I needed it to be used with third a party library, so switching to uniform initialisation was not really an option.
+
 ##Long term maintainability
 If you want your code to stay long, you may want it to play nicer with the C++ standard to minimize the possibility that your code will break
  with new version of C++. There is a lecture by Titus Winters covering it in more detail.
