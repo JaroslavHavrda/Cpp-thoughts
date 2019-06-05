@@ -1,5 +1,5 @@
-#Do not inherit from standard library?
-##The case against inheriting from standard library clases
+# Do not inherit from standard library?
+## The case against inheriting from standard library clases
 This post is inspired by the following blogpost:
 <https://quuxplusone.github.io/blog/2018/12/11/dont-inherit-from-std-types/>
 The important code is:
@@ -28,14 +28,14 @@ int main()
 The code outputs 6, which may be surprising result.
 The reason is that results is deduced to be vector<int>. The line results.push_back(t) then converts t to bool using the (bool) operator and then promotes
 bool to int.
-##Is a / Has a rule
+## Is a / Has a rule
 At this point I will like review the is a / has a rule.
 <https://en.wikipedia.org/wiki/Has-a>
 closely related to Liskov substitution principle
 <https://en.wikipedia.org/wiki/Liskov_substitution_principle>.
 You do not need any deep understanding of these principles. All I need to know for now is: inheritance reads aloud *is a*
  and composition reads aloud *has a*. Even this simple corolary will help us understand the code better.
-##Reading the code aloud
+## Reading the code aloud
 Now we can read the code aloud.
 
 *Inheritance* is a vector of integers. The value of *Inheritance* can be treated as bool in a way that empty vector is false and nonempty vector is true.
@@ -61,15 +61,15 @@ bool. Not having implicit conversion from *Inheritance* to bool will break the c
 
 This gives me the feeling that it is not template argument deduction that has bitten us. It is the fact that we abused C++ syntax and wrote purely technical
 code that does not model any real interaction too closely. Would we choose more descriptive naming the problem would be apparent.
-##The case for deriving from std::array
+## The case for deriving from std::array
 I once inherited from std::array. I did it because I needed array of three doubles... ... that has constructor taking three doubles.
  I needed it to be used with third a party library, so switching to uniform initialisation was not really an option.
 
-##Long term maintainability
+## Long term maintainability
 If you want your code to stay long, you may want it to play nicer with the C++ standard to minimize the possibility that your code will break
  with new version of C++. There is a lecture by Titus Winters covering it in more detail.
 <https://www.youtube.com/watch?v=tISy7EJQPzI>
-##So?
+## So?
 -- Always read your code aloud.
 -- Do not inherit from standard containers if you want your code to last.
 -- If you are a library author, use uniform initialization.
