@@ -77,8 +77,8 @@ If you want your code to stay long, you may want it to play nicer with the C++ s
  with new version of C++. There is a lecture by Titus Winters covering it in more detail.
 <https://www.youtube.com/watch?v=tISy7EJQPzI>
 ## So?
--- Always read your code aloud.
--- Do not inherit from standard containers if you want your code to last.
--- If you are a library author, use uniform initialization.
--- Before introducing new rule into coding guidelines, check if your problem cannod be avoided using existing rules.
--- Introduce rules banning language features only as last resort.
+* Always read your code aloud.
+* Do not inherit from standard containers if you want your code to last.
+* If you are a library author, use uniform initialization.
+* Before introducing new rule into coding guidelines, check if your problem cannod be avoided using existing rules.
+* Introduce rules banning language features only as last resort.
