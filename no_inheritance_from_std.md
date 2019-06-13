@@ -72,17 +72,17 @@ identity to hold:
 and there is no way to define `operator++` to satify this property. So both operations are purely technical and do not model any special kind of vector.
 
 Lets move on to `countdown_to_zero`. To `countdown_to_zero` from `t`, initialize vector `result` with `t` then while `t` is true push `t` into result
-and decrement `t`. The value of `countdown_to_zero` will be the size of result.
+and decrement `t`. The value of `countdown_to_zero` will be the size of `result`.
 
-My spider sense is tingling again. I do not know what type should `t` be. Ok, I konw that ints are implicitly convertible to bool, but this really is
+My spider sense is tingling again. I do not know what type should `t` be. Ok, I konw that integers are implicitly convertible to booleans, but this really is
 a technicality. In mathematics there is really no reason that some number should be true or false. If the intention was to test if `t` is not zero,
 I would prefer
 ```C++
 for (; t !=0; t--)
 ```
 
-Now even the small change from condition `t` to condition `t != 0` makes a difference. Now there is no need to have ocnversion from `Inheritance` to
-`bool`. Not having implicit conversion from `Inheritance` to bool will break the chain of implicit conversions from `Inheritance` to `int` and the line
+Now even the small change from condition `t` to condition `t != 0` makes a difference. Now there is no need to treat `Inheritance` as boolean.
+Not having implicit conversion from `Inheritance` to bool will break the chain of implicit conversions from `Inheritance` to `int` and the line
 ```C++
 result.push_back(t)
 ```
