@@ -43,19 +43,28 @@ In this post I would like to show you that the code has bigger problems than the
 to avoid these kind of surprises.
 ## Is a / Has a rule
 At this point I will like review the is a / has a rule.
-<https://en.wikipedia.org/wiki/Has-a>
+<https://en.wikipedia.org/wiki/Is-a>.
 closely related to Liskov substitution principle
 <https://en.wikipedia.org/wiki/Liskov_substitution_principle>.
-You do not need any deep understanding of these principles. All I need to know for now is: inheritance reads aloud *is a*
- and composition reads aloud *has a*. Even this simple corolary will help us understand the code better.
+
+The Liskov substitution principle states that:
+>Let p(x) be a property provable about objects x of type T. Then p(y) should be true for all objects y of type S where S is subtype of T.
+
+In less mathematic formulation - if sou can say something about objects of type T, you can say the same thing about objects of type S.
+In other words, objects of type S are also of type T.
+
+Subtypes are in C++ modelled by inheritance. Thus we should read inheritance aloud *is a*.
+ Similarly we should read composition aloud as *has a*.
+Even if you are scared by the formal definition of the Liskov substitution principle this is what I want you to remember.
 ## Reading the code aloud
 Now we can read the code aloud.
 
-`Inheritance` is a vector of integers. The value of `Inheritance` can be treated as bool in a way that empty vector is false and nonempty vector is true.
+`Inheritance` is a vector of integers. The value of `Inheritance` can be treated as boolean in a way that empty vector is false and nonempty vector is true.
 The value of `Inheritance` can be decreased by poping the last element.
 
-My spider sense is tingling. Treating value as bool is common in C++, but in most cases it is a technicality not modeling anything from real world.
-And such technical ( read keystroke saving ) casts tend to backfire a lot. The decrement operation is even more wierd - I would expect some the following
+My spider sense is tingling. Treating value as boolean is common in C++, but in most cases it is a technicality not modeling anything from real world.
+And such technical (read keystroke saving) reinterpreations tend to backfire a lot.
+The decrement operation is even more wierd - I would expect some the following
 identity to hold:
 ```C++
 (a--)++ == a
