@@ -96,7 +96,8 @@ I once inherited from `std::array`. I did it because I needed array of three dou
 
 ## Long term maintainability
 If you want your code to stay long, you may want it to play nicer with the C++ standard to minimize the possibility that your code will break
- with new version of C++. There is a lecture by Titus Winters covering it in more detail.
+ with new version of C++. The reason is different. You risk that new version of C++ adds method with the same name but a bit different usage then methods
+of the inherited class. This would be very difficult to maintain. There is a lecture by Titus Winters covering it in more detail.
 <https://www.youtube.com/watch?v=tISy7EJQPzI>
 ## So?
 * Always read your code aloud.
