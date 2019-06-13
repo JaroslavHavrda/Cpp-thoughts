@@ -25,9 +25,22 @@ int main()
    std::cout << countdown_to_zero(y) << "\n";
 }
 ```
-The code outputs 6, which may be surprising result.
-The reason is that results is deduced to be `vector<int>`. The line `results.push_back(t)` then converts t to bool using the `(bool)` operator and then
+
+The intended behaviour of the code is the following: The `vector<Inheritance> result` is initialized to have one element. Then three more elements are add.
+Thus the output is 4.
+  
+In reality the code outputs 6, which the author finds surprising.
+
+The reason is that `results` is deduced to be `vector<int>`. The line `results.push_back(t)` then converts t to bool using the `(bool)` operator and then
  promotes `bool` to `int`.
+
+The author follows to state two rules:
+
+- Do not inherit from standard containers.
+- Do not use template argument deduction (write `vector<Inheritance>` instead of `vector`)
+
+In this post I would like to show you that the code has bigger problems than the two rules and that in facts no banning of language features is required
+to avoid these kind of surprises.
 ## Is a / Has a rule
 At this point I will like review the is a / has a rule.
 <https://en.wikipedia.org/wiki/Has-a>
