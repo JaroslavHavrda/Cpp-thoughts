@@ -105,3 +105,5 @@ of the inherited class. This would be very difficult to maintain. There is a lec
 * If you are a library author, use uniform initialization.
 * Before introducing new rule into coding guidelines, check if your problem cannod be avoided using existing rules.
 * Introduce rules banning language features only as last resort.
+
+[back](https://jaroslavhavrda.github.io/Cpp-thoughts)
